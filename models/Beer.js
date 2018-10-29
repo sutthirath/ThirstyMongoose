@@ -10,7 +10,7 @@ var commentSchema = new Schema({
 var beerSchema = new Schema({
     name: String,
     style: String,
-    bars: [{type: Schema.Types.ObjectId, ref: ' Bar'}],
+    bars: [{type: Schema.Types.ObjectId, ref: 'Bar'}],
     comments: [commentSchema]
 }, {
 timestamps: true

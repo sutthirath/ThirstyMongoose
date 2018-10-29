@@ -1,5 +1,5 @@
-var Bar = require('../models/bar');
-var Beer = require('../models/beer');
+var Bar = require('../models/Bar');
+var Beer = require('../models/Beer');
 
 function index(req, res) {
     Bar.find([], (err, bars) => {
@@ -9,7 +9,7 @@ function index(req, res) {
 
 function show(req, res) {
     Bar.findById(req.params.id).populate('beers').exec((err, bar) => {
-        res.redner('bars/show', {pageTitle: 'Bar: ' + bar.name, bar});
+        res.render('bars/show', {pageTitle: 'Bar: ' + bar.name, bar});
     });
 }
 
