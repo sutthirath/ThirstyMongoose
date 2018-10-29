@@ -2,6 +2,7 @@ var Beer = require('../models/Beer');
 
 function index(req, res) {
     Beer.find({}, (err, beers) => {
+        console.log('beers', beers)
         res.render('beers/index', {pageTitle: 'Beer List', beers});
     });
 }

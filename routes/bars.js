@@ -14,6 +14,8 @@ router.post('/:barId/beers/:beerId', bars.createServe);
 
 router.get('/:id/beers/new', bars.newServe);
 
+router.delete('/:barId/beers/:beerId', bars.deleteServe);
+
 router.delete('/:id', bars.delete);
 
 module.exports = router;

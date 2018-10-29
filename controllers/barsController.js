@@ -2,7 +2,7 @@ var Bar = require('../models/Bar');
 var Beer = require('../models/Beer');
 
 function index(req, res) {
-    Bar.find([], (err, bars) => {
+    Bar.find({}, (err, bars) => {
         res.render('bars/index', {pageTitle: 'Bar List', bars});
     });
 }
@@ -43,10 +43,10 @@ function create(req, res) {
 }
 
 function createServe(req, res) {
-    Bar.findById(req.params.beerId, (err, bar) => {
+    Bar.findById(req.params.barId, (err, bar) => {
         bar.beers.push(req.params.beerId);
-        beer.save(() => {
-            Beer.findById(re.params.beerId, (err, beer) => {
+        bar.save(() => {
+            Beer.findById(req.params.beerId, (err, beer) => {
                 beer.bars.push(req.params.barId);
                 beer.save(() => {
                     res.redirect(`/bars/${bar.id}`);

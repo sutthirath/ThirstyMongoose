@@ -4,7 +4,7 @@
     <div>
         <% beers.forEach(function(beer) { %>
             <a href="/beers/<%= beer.id %>">
-                <h3><% beer.name %></h3>
+                <h3><%= beer.name %></h3>
             </a>
         <% }) %>
     </div>
