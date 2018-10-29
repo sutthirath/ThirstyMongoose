@@ -1,0 +1,17 @@
+<%- include ../partials/header %>
+
+<% if (beers.length) { %>
+    <div>
+        <% beers.forEach(function(beer) { %>
+            <form action="/bars/<%= barId %>/beers/<%= beer.id %>" method="POST">
+                <button type="submit"><%= beer.name %>
+                    <h6><%= beer.style %></h6>
+                </button>
+            </form>
+        <% }) %>
+    </div>
+<% } else { %>
+    <h3>Already Serving All Beers!</h3>
+<% } %>
+
+<%- include ../partials/footer %>

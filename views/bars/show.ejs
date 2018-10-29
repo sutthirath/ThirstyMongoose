@@ -1,0 +1,34 @@
+<%- include ../partials/header %>
+
+<div>
+    <div>
+        <h1><% bar.name %>
+            <h6><% bar.location %></h6>
+        </h1>
+    </div>
+</div>
+<div>
+    <% if (bar.beers.length) { %>
+        <h3>Beer List:</h3>
+        <% bar.beers.forEach(beer => { %>
+            <div>
+                <form action="/bars/<%= bar.id %>/beers/<%= beer.id %>?_method=DELETE" method="POST">
+                    <label><%= beer.name %></label>
+                    <button type="submit">Stop Serving</button>
+                </form>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <h3>No Beers</h3>
+    <% } %>
+</div>
+<hr>
+<div>
+    <a href="/bars/<%= bar.id %>/beers/new">Add Beer</a>
+    <br>
+    <form action="/bars/<%= bar.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+</div>
+
+<%- include ../partials/footer %>
