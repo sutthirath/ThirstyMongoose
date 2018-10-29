@@ -28,4 +28,4 @@ beerSchema.post('remove', function(doc) {
     );
 });
 
-module.exports = monsgoose.model('Beer', beerSchema);
+module.exports = mongoose.model('Beer', beerSchema);
