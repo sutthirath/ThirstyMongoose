@@ -1,0 +1,26 @@
+body {
+    background-image: url(https://i.imgur.com/Neu1GeU.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white !important;
+}
+
+a {
+    color: white !important;
+}
+
+.card {
+    width: 800px;
+    margin: auto !important;
+    background-color: #ff8f00 !important;
+    opacity: 0.8;
+}
+
+.btn {
+    background-color: #ff6f00 !important;
+}
+
+.btnspace {
+    margin: 10px 0;
+    width: 300px;
+}

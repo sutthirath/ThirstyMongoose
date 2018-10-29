@@ -1,40 +1,42 @@
 <% include ../partials/header %>
 
-<div>
-    <h1>
-        <% beer.name %> <h6><%= beer.style %></h6>
-        <form action="/beers/<%= beer.id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete</button>
+<div class="card center">
+    <div class="container">
+        <h1>
+            <% beer.name %> <h6><%= beer.style %></h6>
+            <form action="/beers/<%= beer.id %>?_method=DELETE" method="POST">
+                <button class="btn" type="submit">Delete</button>
+            </form>
+        </h1>
+    </div>
+    <div class="container">
+        <% if (beer.bars.length) { %>
+        <h2>Served at these locations:</h2>
+        <div>
+            <% beer.bars.forEach(bar => { %>
+                <a href="/bars/<%= bar.id %>">
+                    <h3><%= bar.name %></h3>
+                </a>
+            <% }) %>
+        </div>
+        <% } else { %>
+            <h3>Not Served at Any Locations</h3>
+            <hr>
+        <% } %>
+    </div>
+    <div class="container">
+        <form action="/beers/<%= beer.id %>/comments" method="POST">
+            <input type="text" name="content" placeholder="add comment">
+            <button class="btn" type="submit">Post</button>
         </form>
-    </h1>
-</div>
-<div>
-    <% if (beer.bars.length) { %>
-    <h2>Served at these locations:</h2>
-    <div>
-        <% beer.bars.forEach(bar => { %>
-            <a href="/bars/<%= bar.id %>">
-                <h3><%= bar.name %></h3>
-            </a>
+        <h3>Comments:</h3>
+        <% beer.comments.forEach(comment => { %>
+            <div>
+                <div><%= comment.createdAt.toDateString() %></div>
+                <div><%= comment.content %></div>
+            </div>
         <% }) %>
     </div>
-    <% } else { %>
-        <h3>Not Served at Any Locations</h3>
-    <% } %>
 </div>
-<div>
-    <form action="/beers/<%= beer.id %>/comments" method="POST">
-        <input type="text" name="content" placeholder="add comment">
-        <button type="submit">Post</button>
-    </form>
-    <h3>Comments:</h3>
-    <% beer.comments.forEach(comment => { %>
-        <div>
-            <div><%= comment.createdAt.toDateString() %></div>
-            <div><%= comment.content %></div>
-        </div>
-    <% }) %>
-</div>
-
 
 <% include ../partials/footer %>

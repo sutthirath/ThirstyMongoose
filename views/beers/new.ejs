@@ -1,17 +1,19 @@
 <%- include ../partials/header %>
 
-<form action="/beers" method="POST">
-    <div>
-        <label for="name">Beer Name:</label>
-        <input type="text" name="name">
+<div class="row"></div>
+    <div class="card center">
+        <form action="/beers" method="POST">
+            <div>
+                <label for="name">Beer Name:</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="style">Location:</label>
+                <input type="text" name="style">
+            </div>
+            <button class="btn amber darken-4" type="submit" >Add Beer</button>
+        </form>
     </div>
-    <div>
-        <label for="style">Location:</label>
-        <input type="text" name="style">
-    </div>
-    <button type="submit" >Add Beer</button>
-</form>
-
-<hr>
+</div>
 
 <%- include ../partials/footer %>

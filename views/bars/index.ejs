@@ -1,7 +1,8 @@
 <%- include ../partials/header %>
 
+<div class="card">
 <% if (bars.length) { %>
-    <div>
+    <div class="container center">
         <% bars.forEach(function(bar) { %>
             <a href="/bars/<%= bar.id %>">
                 <h3><%= bar.name %></h3>
@@ -11,11 +12,10 @@
 <% } else { %>
     <h3>No Bars Currently</h3>
 <% } %>
+</div>
 
-<hr>
-
-<div>
-    <a href="/bars/new">Add Bar</a>
+<div class="big center">
+    <a class="btn" href="/bars/new">Add Bar</a>
 </div>
 
 <%- include ../partials/footer %>

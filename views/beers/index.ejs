@@ -1,21 +1,22 @@
 <% include ../partials/header %>
 
 <% if (beers.length) { %> 
-    <div>
+    <div class="card">
         <% beers.forEach(function(beer) { %>
-            <a href="/beers/<%= beer.id %>">
-                <h3><%= beer.name %></h3>
-            </a>
+            <div class="container center">
+                <a href="/beers/<%= beer.id %>">
+                    <h3><%= beer.name %></h3>
+                </a>
+            </div>
         <% }) %>
     </div>
 <% } else { %>
     <h3>No Beers!</h3>
 <% } %>
 
-<hr>
 
-<div>
-    <a href="/beers/new">Add Beer</a>
+<div class="big center">
+    <a class="btn" href="/beers/new">Add Beer</a>
 </div>
 
 <% include ../partials/footer %>
