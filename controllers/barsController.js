@@ -21,7 +21,7 @@ function deleteBar(req, res) {
 }
 
 function newServe(req, res) {
-    Beer.find({bars: {$ne: releaseEvents.params.id}})
+    Beer.find({bars: {$ne: req.params.id}})
         .exec(function(err, beers) {
             res.render('bars/serve', {
                 pageTitle: 'Click Beer to Serve',
