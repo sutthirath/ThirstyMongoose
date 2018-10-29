@@ -1,3 +1,21 @@
 <% include partials/header %>
 
+<% if (bars.length) { %>
+    <div>
+        <% bars.forEach(function(bar) { %>
+            <a href="/bars/<%= bar.id %>">
+                <h3><%= bar.name %></h3>
+            </a>
+        <% }) %>
+    </div>
+<% } else { %>
+    <h3>No Bars Currently</h3>
+<% } %>
+
+<hr>
+
+<div>
+    <a href="/bars/new">Add Bar</a>
+</div>
+
 <% include partials/footer %>

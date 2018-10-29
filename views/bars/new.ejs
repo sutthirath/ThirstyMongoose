@@ -1,0 +1,18 @@
+<%- include ../partials/headers %>
+
+<div>
+    <form action="/bars" method="POST">
+        <div>
+            <label for="name">Bar Name:</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" name="location">
+        </div>
+        <button type="submit">Add Bar</button>
+    </form>
+    <hr>
+</div>
+
+<%- include ../partials/footer %>
